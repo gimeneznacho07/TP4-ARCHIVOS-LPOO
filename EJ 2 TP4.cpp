@@ -15,32 +15,9 @@ main(){
 			scanf("%s", apellido);
 			printf("Ingrese su DNI: \n");
 			scanf("%d", &dni); 
-			archivo = fopen("guardar.txt", "r");
-			while(fscanf(archivo, "%s %s %d", nombreBusq, apellidoBusq, &dni_busq) != EOF) 
-			{
-                 if(strcmp(nombreBusq, nombre) == 0) 
-				{
-                   nombreRep++;
-                }
-                 if(strcmp(apellidoBusq, apellido) == 0)
-				{
-                   apellidoRep++;
-                }
-                if(dni_busq == dni) 
-				{
-                   dniRep++;
-                }
-           }
-            fclose(archivo);
-            if(nombreRep != 0 && apellidoRep != 0 && dniRep != 0)
-            {
-            	printf("Los datos ya estan registrados.");
-			}
-			else{
-				archivo = fopen("guardar.txt", "a");
-				fprintf(archivo, "%s %s %d\n", nombre, apellido, dni);
-				fclose(archivo);
-			}
+			archivo = fopen("guardar.txt", "a");
+			fprintf(archivo, "%s %s %d\n", nombre, apellido, dni);
+			fclose(archivo);
 			break;
 		}
 		case 2:
